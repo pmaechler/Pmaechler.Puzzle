@@ -1,0 +1,23 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of teachers</f:section>
+
+<f:section name="Content">
+	<f:if condition="{teachers}">
+		<f:then>
+			<ul>
+				<f:for each="{teachers}" as="teacher">
+					<li>
+						<f:link.action action="show" arguments="{teacher: teacher}">{teacher.name}</f:link.action>
+						<f:link.action action="edit" arguments="{teacher: teacher}">Edit</f:link.action>
+						<f:link.action action="delete" arguments="{teacher: teacher}">Delete</f:link.action>
+					</li>
+				</f:for>
+			</ul>
+		</f:then>
+		<f:else>
+			<p>No teachers created yet.</p>
+		</f:else>
+	</f:if>
+	<p><f:link.action action="new">Create a new teacher</f:link.action></p>
+</f:section>

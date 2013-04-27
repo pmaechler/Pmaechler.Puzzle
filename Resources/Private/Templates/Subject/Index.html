@@ -1,0 +1,23 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of subjects</f:section>
+
+<f:section name="Content">
+	<f:if condition="{subjects}">
+		<f:then>
+			<ul>
+				<f:for each="{subjects}" as="subject">
+					<li>
+						<f:link.action action="show" arguments="{subject: subject}">{subject.name}</f:link.action>
+						<f:link.action action="edit" arguments="{subject: subject}">Edit</f:link.action>
+						<f:link.action action="delete" arguments="{subject: subject}">Delete</f:link.action>
+					</li>
+				</f:for>
+			</ul>
+		</f:then>
+		<f:else>
+			<p>No subjects created yet.</p>
+		</f:else>
+	</f:if>
+	<p><f:link.action action="new">Create a new subject</f:link.action></p>
+</f:section>

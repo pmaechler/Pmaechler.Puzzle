@@ -1,0 +1,23 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of standards</f:section>
+
+<f:section name="Content">
+	<f:if condition="{standards}">
+		<f:then>
+			<ul>
+				<f:for each="{standards}" as="standard">
+					<li>
+						<f:link.action action="show" arguments="{standard: standard}">{standard.name}</f:link.action>
+						<f:link.action action="edit" arguments="{standard: standard}">Edit</f:link.action>
+						<f:link.action action="delete" arguments="{standard: standard}">Delete</f:link.action>
+					</li>
+				</f:for>
+			</ul>
+		</f:then>
+		<f:else>
+			<p>No standards created yet.</p>
+		</f:else>
+	</f:if>
+	<p><f:link.action action="new">Create a new standard</f:link.action></p>
+</f:section>
