@@ -1,14 +1,56 @@
-<!DOCTYPE html>
+{namespace bootstrap=TYPO3\Twitter\Bootstrap\ViewHelpers}
+<!-- {namespace glossary=Laeuft\Glossary\ViewHelpers} -->
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title><f:render section="Title" /></title>
 		<f:base />
+
+		<bootstrap:include version="2.1" includeJQuery="TRUE" />
+		<link rel="stylesheet" href="{f:uri.resource(path:'CSS/puzzle.css')}" />
+		<script src="{f:uri.resource(path:'JS/puzzle.js')}"></script>
 	</head>
 	<body>
-		<f:flashMessages class="flashmessages" />
+		<div class="navbar navbar-fixed-top navbar-inverse">
+			<div class="navbar-inner">
+				<div class="container">
+					<f:link.action action="index" controller="Standard" class="brand">
+						Glossary
+					</f:link.action>
 
-		<h1><f:render section="Title" /></h1>
-		<f:render section="Content" />
+					<bootstrap:navigation.menu items="{navigationItems}" />
+
+					<f:if condition="{user}">
+						<span class="loggedInAs pull-right">
+							Logged in as {user.name.firstName} {user.name.lastName} -
+							<f:link.action action="logout" controller="Login">
+								Logout
+							</f:link.action>
+						</span>
+					</f:if>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<h1><f:render section="Title" /></h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span12">
+					<f:flashMessages class="flashmessages" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span12">
+					<f:render section="Content" />
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
