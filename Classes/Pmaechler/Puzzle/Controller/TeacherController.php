@@ -16,7 +16,7 @@ use \Pmaechler\Puzzle\Domain\Model\Teacher;
  *
  * @Flow\Scope("singleton")
  */
-class TeacherController extends ActionController {
+class TeacherController extends BaseController {
 
 	/**
 	 * @Flow\Inject

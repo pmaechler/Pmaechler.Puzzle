@@ -16,7 +16,7 @@ use \Pmaechler\Puzzle\Domain\Model\Room;
  *
  * @Flow\Scope("singleton")
  */
-class RoomController extends ActionController {
+class RoomController extends BaseController {
 
 	/**
 	 * @Flow\Inject

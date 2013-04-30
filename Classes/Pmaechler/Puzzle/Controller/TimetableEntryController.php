@@ -16,7 +16,7 @@ use \Pmaechler\Puzzle\Domain\Model\TimetableEntry;
  *
  * @Flow\Scope("singleton")
  */
-class TimetableEntryController extends ActionController {
+class TimetableEntryController extends BaseController {
 
 	/**
 	 * @Flow\Inject
